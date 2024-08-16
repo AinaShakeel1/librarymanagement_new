@@ -311,19 +311,22 @@ elseif($msg=="fail"){
 
             <div class="rightinnerdiv">   
             <div id="addperson" class="innerright portion" style="display:none">
-            <Button class="greenbtn" >ADD Person</Button>
+            <Button class="greenbtn" >Add Person</Button>
             <form action="addpersonserver_page.php" method="post" enctype="multipart/form-data">
-            <label>Name:</label><input type="text" name="addname"/>
+            <label>Name:</label><input type="text" name="addname" required/>
             </br>
-            <label>Password:</label><input type="pasword" name="addpass"/>
+            <label>Password:</label><input type="pasword" name="addpass" required/>
             </br>
-            <label>Email:</label><input  type="email" name="addemail"/></br>
-            <label>Phone Number:</label><input type="tel" name="addphone" pattern="[0-10]{11}" placeholder="03xx-xxxxxxx" required/>
+            <label>Email:</label><input  type="email" name="addemail"/>
+            </br>
+            <label>Phone Number:</label><input type="text" name="addphone" pattern="03\d{2}-\d{7}" placeholder="03xx-xxxxxxx" required>
+            </br>
             <label for="typw">Choose type:</label>
             <select name="type" >
                 <option value="student">student</option>
                 <option value="teacher">teacher</option>
             </select>
+
 
             <input type="submit" value="SUBMIT"/>
             </form>

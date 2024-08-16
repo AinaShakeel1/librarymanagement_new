@@ -28,14 +28,15 @@ class data extends db {
     }
 
 
-    function addnewuser($name,$pasword,$email,$type){
+    function addnewuser($name,$pasword,$email,$phone,$type){
         $this->name=$name;
         $this->pasword=$pasword;
         $this->email=$email;
+        $this->phone_number = $phone;
         $this->type=$type;
 
 
-         $q="INSERT INTO userdata(id, name, email, pass,type)VALUES('','$name','$email','$pasword','$type')";
+         $q="INSERT INTO userdata(id, name, email, pass,phone_number,type)VALUES('','$name','$email','$pasword', '$phone', '$type')";
 
         if($this->connection->exec($q)) {
             header("Location:admin_service_dashboard.php?msg=New Add done");
@@ -48,6 +49,7 @@ class data extends db {
 
 
     }
+    
     // Function to convert date format from YYYY-MM-DD to DD/MM/YYYY
     private function convertToMySQLDate($date) {
         $dateArray = explode('-', $date);
